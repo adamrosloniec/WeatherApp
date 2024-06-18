@@ -1,46 +1,66 @@
-# Getting Started with Create React App
+### Dokumentacja aplikacji WeatherApp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ten plik README zawiera przegląd prostej aplikacji pogodowej stworzonej przy użyciu Reacta oraz TypeScript, skupiając się na jej strukturze, komponentach, integracji z API oraz użytych technologiach.
 
-## Available Scripts
+#### Użyte technologie
 
-In the project directory, you can run:
+- **React**: Biblioteka JavaScript do budowania interfejsów użytkownika.
+- **TypeScript**: Rozszerzenie JavaScript dodające statyczne typy.
+- **react-router-dom**: Deklaratywny routing dla aplikacji React.
+- **Tailwind CSS**: Framework CSS oparty na klasach pomocniczych do stylizacji.
 
-### `npm start`
+#### Komponenty
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##### 1. Generatory
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+W projekcie komponenty są tworzone i zarządzane ręcznie.
 
-### `npm test`
+##### 2. Routery HTTP
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Routing jest zarządzany przy użyciu `react-router-dom`. Komponent `BrowserRouter` ustawia ścieżki dla różnych adresów URL:
 
-### `npm run build`
+```jsx
+<Router>
+  <Routes>
+    <Route path="/" element={<App day="today" />} />
+    <Route path="/tomorrow" element={<App day="tomorrow" />} />
+  </Routes>
+</Router>
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##### 3. Szablony HTML
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+HTML jest renderowany przy użyciu składni JSX w komponentach React (`App.tsx`, `Nav.tsx`, `DailyForecast.tsx`).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+##### 4. Konektory do baz danych
 
-### `npm run eject`
+Dla prostoty i ułatwienia korzystania z aplikacji pobieramy dane bezpośrednio z publicznego API (`https://api.open-meteo.com/v1/forecast`).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+##### 5. Integracja z API
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Aplikacja integruje się z API Open Meteo, pobierając dane pogodowe na podstawie określonych parametrów (`params` w `utils.tsx`).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+##### 6. Użyte technologie
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- **React**: Zarządza komponentami interfejsu użytkownika i stanem.
+- **TypeScript**: Zapewnia bezpieczeństwo typów i zwiększa jakość kodu.
+- **react-router-dom**: Obsługuje nawigację między stronami w aplikacji.
+- **Tailwind CSS**: Zapewnia szybkie i responsywne stylizowanie komponentów.
 
-## Learn More
+#### Problemy i rozwiązania
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Routing**: Obsługiwany przy użyciu komponentu `<Link>` z `react-router-dom` do nawigacji między danymi pogodowymi na dzisiaj i jutro.
+- **Integracja z API**: Zaimplementowana w `App.tsx` za pomocą funkcji `fetch()` do pobierania danych pogodowych na podstawie określonych parametrów.
+- **Stylizacja**: Uzywamy Tailwind CSS do szybkiego i responsywnego stylizowania.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Uruchomienie aplikacji
+
+Aby uruchomić aplikację lokalnie:
+
+1. Sklonuj repozytorium.
+2. Zainstaluj zależności za pomocą `npm install`.
+3. Uruchom serwer deweloperski za pomocą `npm start`.
+
+#### Podsumowanie
+
+Ten plik README przedstawia przegląd struktury aplikacji pogodowej, jej komponentów, integracji z API oraz użytych technologii. Opisuje sposób uruchomienia aplikacji lokalnie oraz wymienia narzędzia i biblioteki wykorzystane do budowy projektu.
