@@ -64,3 +64,7 @@ Aby uruchomić aplikację lokalnie:
 #### Podsumowanie
 
 Ten plik README przedstawia przegląd struktury aplikacji pogodowej, jej komponentów, integracji z API oraz użytych technologii. Opisuje sposób uruchomienia aplikacji lokalnie oraz wymienia narzędzia i biblioteki wykorzystane do budowy projektu.
+
+![Homepage-Today](readme/today.png)
+
+![Homepage-Tomorrow](readme/tomorrow.png)
