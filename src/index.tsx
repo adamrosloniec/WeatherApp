@@ -1,19 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react"
+import { createRoot } from "react-dom/client"
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom"
+import App from "./App"
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+// Import tailwind
+const tailwindStylesheet = document.createElement("link")
+tailwindStylesheet.href =
+  "https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css"
+tailwindStylesheet.rel = "stylesheet"
+document.head.appendChild(tailwindStylesheet)
+const container = document.getElementById("root")
+const root = createRoot(container!)
+
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Routes>
+        <Route path="/" element={<App day="today" />} />
+        <Route path="/tomorrow" element={<App day="tomorrow" />} />
+      </Routes>
+    </Router>
   </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+)
